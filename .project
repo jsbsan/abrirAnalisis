@@ -1,0 +1,25 @@
+# Gambas Project File 3.0
+Startup=FMain
+Icon=buscar en analisis.png
+Version=0.0.2
+Component=gb.image
+Component=gb.gui
+Component=gb.form
+Component=gb.desktop
+Component=gb.settings
+Description="Busca una cadena dentro de los nombres de los ficheros de un directorio y abre el primero que no contenga en el nombre lock"
+Authors="julio sanchez berro"
+TabSize=4
+Language=en_US
+SourcePath=/home/mint/Descargas
+Maintainer=jsbsan
+Address=jusabejusabe@gmail.com
+Url=http://www.jsbsan.blogspot.com
+License=General Public License
+PackageName=abriranalisis-0.0.2
+CreateEachDirectory=1
+Packager=1
+Systems=debian
+Menus=debian:"Applications/Accessibility"
+Categories=debian:"Accessibility"
+Groups=debian:"admin"

@@ -1,0 +1,66 @@
+' Gambas class file
+
+Public Sub Form_Open()
+
+    Settings.read(Me)
+    Me.title = "Abrir Analisis Version " & Application.Version
+
+End
+
+Public Sub ButtonAbrir_Click()
+
+    Dim TextoBusqueda As String
+    Dim rutaBusqueda As String
+    Dim arrayfichero As String[]
+    Dim nombrefile As String
+    Dim encontrada As New String[]
+
+    rutabusqueda = Settings["rutaDirectorio", "/home/hdd/home/mint/analisis de apuestas"]
+
+    If TextBox1.text = "" Then
+        TextoBusqueda = ButtonCenetena.text & ButtonDecena.text & ButtonUnidad.Text
+    Else
+        TextoBusqueda = TextBox1.Text
+    Endif
+
+    arrayfichero = Dir(rutaBusqueda, "*" & TextoBusqueda & "*", gb.File)
+    For Each nombrefile In arrayfichero
+        encontrada.add(nombrefile)
+
+    Next
+
+    For Each nombrefile In encontrada
+        If InStr(nombrefile, "lock") = 0 Then
+            'lo puedo abrir
+            Desktop.Open(rutabusqueda & "/" & nombrefile)
+            Break ''solo abrir el primero
+        Endif
+    Next
+
+End
+
+Public Sub TextBox1_KeyPress()
+
+    If Key.code = Key.enter Or Key.code = Key.Return Then
+        ButtonAbrir_Click()
+    Endif
+
+End
+
+Public Sub Form_Close()
+
+    Settings.Write(Me)
+
+End
+
+Public Sub cifras_MouseUp()
+
+    If Mouse.left Then
+        Last.text = Str$(Val(Last.text) + 1)
+    Endif
+    If Mouse.Right And Val(Last.text) > 0 Then
+        Last.text = Str$(Val(Last.text) - 1)
+
+    Endif
+
+End
