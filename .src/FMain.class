@@ -64,3 +64,9 @@ Public Sub cifras_MouseUp()
     Endif
 
 End
+
+Public Sub ButtonLimpiar_Click()
+
+    TextBox1.text = ""
+
+End
