@@ -54,13 +54,25 @@ Public Sub Form_Close()
 End
 
 Public Sub cifras_MouseUp()
+    'hacer click izquierdo aumenta un valor hasta llegar al 9 al siguiente cambia a 0
 
     If Mouse.left Then
-        Last.text = Str$(Val(Last.text) + 1)
-    Endif
-    If Mouse.Right And Val(Last.text) > 0 Then
-        Last.text = Str$(Val(Last.text) - 1)
+        If Val(Last.text) > 8 Then
+            Last.text = "0"
+        Else
 
+            Last.text = Str$(Val(Last.text) + 1)
+        Endif
+    Endif
+
+    'hacer click derecho disminuye el valor hasta llegar al 0 al siguiente pasa al 9
+    If Mouse.Right Then
+        If Val(Last.text) > 0 Then
+            Last.text = Str$(Val(Last.text) - 1)
+        Else
+            Last.text = Str$(9)
+
+        Endif
     Endif
 
 End

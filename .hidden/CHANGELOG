@@ -1,3 +1,6 @@
+* Sun Dec 30 2018 jsbsan <jusabejusabe@gmail.com> 0.0.4
+- añado nuevo comportamiento al hacer click con los botones derechos e izquierdo del raton para ir de 0 al 9 y luego pasar al 9 o al 0, para recorrigo de los digitos
+
 * Thu Dec 27 2018 jsbsan <jusabejusabe@gmail.com> 0.0.3
 - agregado boton de limpiar textbox de busqueda
 
