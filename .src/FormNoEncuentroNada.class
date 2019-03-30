@@ -1,0 +1,17 @@
+' Gambas class file
+
+Public Sub Form_Open()
+
+    Settings.read(Me)
+
+    Timer1.Delay = 2000
+    Timer1.Start()
+
+End
+
+Public Sub Timer1_Timer()
+
+    Settings.Write(Me)
+    Me.close
+
+End

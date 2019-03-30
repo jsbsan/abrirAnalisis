@@ -6,7 +6,7 @@
   Icon = Picture["buscar en analisis.png"]
   Resizable = False
   { TextLabel1 TextLabel
-    MoveScaled(15,0,16,7)
+    MoveScaled(16,0,15,7)
     Font = Font["-2"]
     Text = ("Indica parte del nombre del fichero a abrir (por ejemplo numero):")
     Alignment = Align.Normal
@@ -22,21 +22,31 @@
   }
   { ButtonCenetena Button cifras
     Name = "ButtonCenetena"
-    MoveScaled(2,1,3,5)
+    MoveScaled(8,1,2.1429,5)
     Text = ("0")
   }
   { ButtonDecena Button cifras
     Name = "ButtonDecena"
-    MoveScaled(5,1,3,5)
+    MoveScaled(10,1,2.1429,5)
     Text = ("0")
   }
   { ButtonUnidad Button cifras
     Name = "ButtonUnidad"
-    MoveScaled(8,1,3,5)
+    MoveScaled(12,1,2.1429,5)
     Text = ("0")
   }
   { ButtonLimpiar Button
     MoveScaled(61,1,4,5)
     Picture = Picture["icon:/16/clear"]
+  }
+  { ButtonDecenaMillar Button cifras
+    Name = "ButtonDecenaMillar"
+    MoveScaled(0,1,3,5)
+    Text = ("0")
+  }
+  { ButtonUnidadMillar Button cifras
+    Name = "ButtonUnidadMillar"
+    MoveScaled(3,1,3,5)
+    Text = ("0")
   }
 }

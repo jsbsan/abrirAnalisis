@@ -1,0 +1,17 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,59,12)
+  Background = &H1FFF8F&
+  Resizable = False
+  Arrangement = Arrange.Fill
+  { Label1 Label
+    MoveScaled(8,1,42,10)
+    Font = Font["+5"]
+    Text = ("No en cuentro nada")
+    Alignment = Align.Center
+  }
+  { Timer1 #Timer
+    #MoveScaled(48,4)
+  }
+}

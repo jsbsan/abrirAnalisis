@@ -1,5 +1,7 @@
 ' Gambas class file
 
+Public BooleanEncontrada As Boolean = False
+
 Public Sub Form_Open()
 
     Settings.read(Me)
@@ -18,9 +20,14 @@ Public Sub ButtonAbrir_Click()
     rutabusqueda = Settings["rutaDirectorio", "/home/hdd/home/mint/analisis de apuestas"]
 
     If TextBox1.text = "" Then
-        TextoBusqueda = ButtonCenetena.text & ButtonDecena.text & ButtonUnidad.Text
+        TextoBusqueda = ButtonDecenaMillar.text & ButtonUnidadMillar.text & " " & ButtonCenetena.text & ButtonDecena.text & ButtonUnidad.Text
     Else
-        TextoBusqueda = TextBox1.Text
+        If Len(TextBox1.Text) = 5 Then
+            TextoBusqueda = Mid$(TextBox1.Text, 1, 2) & " " & Mid$(TextBox1.Text, 3, 5)
+        Else
+            TextoBusqueda = TextBox1.Text
+        Endif
+
     Endif
 
     arrayfichero = Dir(rutaBusqueda, "*" & TextoBusqueda & "*", gb.File)
@@ -29,13 +36,23 @@ Public Sub ButtonAbrir_Click()
 
     Next
 
+    BooleanEncontrada = False
+
     For Each nombrefile In encontrada
         If InStr(nombrefile, "lock") = 0 Then
             'lo puedo abrir
             Desktop.Open(rutabusqueda & "/" & nombrefile)
+            BooleanEncontrada = True
             Break ''solo abrir el primero
         Endif
     Next
+
+    If BooleanEncontrada = False Then
+        'mostrar ventana de no encuentro nada..
+        FormNoEncuentroNada.Show()
+        TextBox1.SetFocus()
+        TextBox1.Pos = 0
+    Endif
 
 End
 
