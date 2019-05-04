@@ -5,7 +5,7 @@ Public BooleanEncontrada As Boolean = False
 Public Sub Form_Open()
 
     Settings.read(Me)
-    Me.title = "Abrir Analisis Version " & Application.Version
+    Me.title = "Buscar ficheros De Analisis. Version " & Application.Version
 
 End
 
@@ -97,5 +97,13 @@ End
 Public Sub ButtonLimpiar_Click()
 
     TextBox1.text = ""
+
+End
+
+Public Sub Buttonpegar_Click()
+
+    Print Clipboard.Paste("text/html")
+    Print Clipboard.Paste("text/plain;charset=utf-8")
+    TextBox1.text = Replace(Clipboard.Paste("text/plain;charset=utf-8"), "\n", "")
 
 End
