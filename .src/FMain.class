@@ -4,6 +4,12 @@ Public BooleanEncontrada As Boolean = False
 
 Public Sub Form_Open()
 
+    If ModuleMeEjecuto.MeEjecuto() Then
+        'fin de la aplicación...
+        Me.Close()
+        Return
+    Endif
+
     Settings.read(Me)
     Me.title = "Buscar ficheros De Analisis. Version " & Application.Version
 
