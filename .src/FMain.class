@@ -31,7 +31,7 @@ Public Sub ButtonAbrir_Click()
         If Len(TextBox1.Text) = 5 Then
             TextoBusqueda = Mid$(TextBox1.Text, 1, 2) & " " & Mid$(TextBox1.Text, 3, 5)
         Else
-            TextoBusqueda = TextBox1.Text
+            TextoBusqueda = Mid$(TextBox1.Text, 1, InStr(TextBox1.text, "-") - 1) 'limito la busqueda hasta el "-" en el nombre
         Endif
 
     Endif
