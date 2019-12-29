@@ -33,10 +33,13 @@ Public Sub ButtonAbrir_Click()
         Else
             If InStr(TextBox1.text, "-") = 0 Then
                 TextoBusqueda = Mid$(TextBox1.Text, 1, 6) 'limito la busqueda hasta el sexto caracter
-                Else
-            TextoBusqueda = Mid$(TextBox1.Text, 1, InStr(TextBox1.text, "-") - 1) 'limito la busqueda hasta el "-" en el nombre        
+            Else
+                TextoBusqueda = Mid$(TextBox1.Text, 1, InStr(TextBox1.text, "-") - 1) 'limito la busqueda hasta el "-" en el nombre
+                If Len(TextoBusqueda) = 5 Then
+                    TextoBusqueda = Mid$(TextoBusqueda, 1, 2) & " " & Mid$(TextoBusqueda, 3, 5)
+                Endif
             Endif
-            
+
         Endif
 
     Endif

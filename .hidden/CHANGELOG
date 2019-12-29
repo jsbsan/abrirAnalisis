@@ -1,3 +1,6 @@
+* Sun Dec 29 2019 jsbsan <jusabejusabe@gmail.com> 0.0.10
+- si contiene - extrae hasta el - y si es de 5 de tamaño agrega un espacio 00 espacio y 3 caracteres
+
 * Sun Dec 15 2019 jsbsan <jusabejusabe@gmail.com> 0.0.9
 - mejora al leer 6 caracteres del nombre o hasta el -
 
