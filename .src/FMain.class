@@ -13,6 +13,8 @@ Public Sub Form_Open()
     Settings.read(Me)
     Me.title = "Buscar ficheros De Analisis. Version " & Application.Version
 
+    If Settings["rutaDirectorio"] = "" Then Settings["rutaDirectorio"] = "/home/hdd/home/mint/analisis de apuestas"
+
 End
 
 Public Sub ButtonAbrir_Click()
@@ -119,5 +121,11 @@ Public Sub Buttonpegar_Click()
     Print Clipboard.Paste("text/html")
     Print Clipboard.Paste("text/plain;charset=utf-8")
     TextBox1.text = Replace(Clipboard.Paste("text/plain;charset=utf-8"), "\n", "")
+
+End
+
+Public Sub ButtonAbrirConfiguracion_Click()
+
+    Exec ["gedit", User.Home & "/.config/gambas3/abrirAnalisis.conf"]
 
 End

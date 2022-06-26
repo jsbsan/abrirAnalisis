@@ -1,7 +1,7 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,70,7)
+  MoveScaled(0,0,83,7)
   Background = &H47BF47&
   Icon = Picture["buscar en analisis.png"]
   Resizable = False
@@ -52,5 +52,10 @@
   { Buttonpegar Button
     MoveScaled(50,1,4,5)
     Picture = Picture["icon:/16/paste"]
+  }
+  { ButtonAbrirConfiguracion Button
+    MoveScaled(77,1,6,5)
+    ToolTip = ("Abrir configuracion")
+    Picture = Picture["icon:/24/edit"]
   }
 }
