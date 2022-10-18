@@ -15,6 +15,12 @@ Public Sub Form_Open()
 
     If Settings["rutaDirectorio"] = "" Then Settings["rutaDirectorio"] = "/home/hdd/home/mint/analisis de apuestas"
 
+    If ARGS.Count = 2 Then
+        TextBoxID.Text = ARGS[1]
+        ButtonAbrir_Click()
+        Me.Close()
+    Endif
+
 End
 
 Public Sub ButtonAbrir_Click()
@@ -27,16 +33,16 @@ Public Sub ButtonAbrir_Click()
 
     rutabusqueda = Settings["rutaDirectorio", "/home/hdd/home/mint/analisis de apuestas"]
 
-    If TextBox1.text = "" Then
+    If TextBoxID.text = "" Then
         TextoBusqueda = ButtonDecenaMillar.text & ButtonUnidadMillar.text & " " & ButtonCenetena.text & ButtonDecena.text & ButtonUnidad.Text
     Else
-        If Len(TextBox1.Text) = 5 Then
-            TextoBusqueda = Mid$(TextBox1.Text, 1, 2) & " " & Mid$(TextBox1.Text, 3, 5)
+        If Len(TextBoxID.Text) = 5 Then
+            TextoBusqueda = Mid$(TextBoxID.Text, 1, 2) & " " & Mid$(TextBoxID.Text, 3, 5)
         Else
-            If InStr(TextBox1.text, "-") = 0 Then
-                TextoBusqueda = Mid$(TextBox1.Text, 1, 6) 'limito la busqueda hasta el sexto caracter
+            If InStr(TextBoxID.text, "-") = 0 Then
+                TextoBusqueda = Mid$(TextBoxID.Text, 1, 6) 'limito la busqueda hasta el sexto caracter
             Else
-                TextoBusqueda = Mid$(TextBox1.Text, 1, InStr(TextBox1.text, "-") - 1) 'limito la busqueda hasta el "-" en el nombre
+                TextoBusqueda = Mid$(TextBoxID.Text, 1, InStr(TextBoxID.text, "-") - 1) 'limito la busqueda hasta el "-" en el nombre
                 If Len(TextoBusqueda) = 5 Then
                     TextoBusqueda = Mid$(TextoBusqueda, 1, 2) & " " & Mid$(TextoBusqueda, 3, 5)
                 Endif
@@ -66,13 +72,13 @@ Public Sub ButtonAbrir_Click()
     If BooleanEncontrada = False Then
         'mostrar ventana de no encuentro nada..
         FormNoEncuentroNada.Show()
-        TextBox1.SetFocus()
-        TextBox1.Pos = 0
+        TextBoxID.SetFocus()
+        TextBoxID.Pos = 0
     Endif
 
 End
 
-Public Sub TextBox1_KeyPress()
+Public Sub TextBoxID_KeyPress()
 
     If Key.code = Key.enter Or Key.code = Key.Return Then
         ButtonAbrir_Click()
@@ -112,7 +118,7 @@ End
 
 Public Sub ButtonLimpiar_Click()
 
-    TextBox1.text = ""
+    TextBoxID.text = ""
 
 End
 
@@ -120,7 +126,7 @@ Public Sub Buttonpegar_Click()
 
     Print Clipboard.Paste("text/html")
     Print Clipboard.Paste("text/plain;charset=utf-8")
-    TextBox1.text = Replace(Clipboard.Paste("text/plain;charset=utf-8"), "\n", "")
+    TextBoxID.text = Replace(Clipboard.Paste("text/plain;charset=utf-8"), "\n", "")
 
 End
 

@@ -1,7 +1,8 @@
 # Gambas Project File 3.0
 Startup=FMain
 Icon=buscar en analisis.png
-Version=0.0.11
+Version=0.0.12
+Component=gb.args
 Component=gb.image
 Component=gb.gui
 Component=gb.form
@@ -16,7 +17,7 @@ Maintainer=jsbsan
 Address=jusabejusabe@gmail.com
 Url=http://www.jsbsan.blogspot.com
 License=General Public License
-PackageName=abriranalisis-0.0.10
+PackageName=abriranalisis-0.0.12
 CreateEachDirectory=1
 Packager=1
 Systems=debian
